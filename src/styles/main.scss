@@ -10,8 +10,8 @@ body {
 }
 
 .calendar {
-  display: grid;
-  grid-template-columns: repeat(7, $day-size);
+  display: flex;
+  flex-wrap: wrap;
   gap: $gap;
   width: 7 * $day-size + 6 * $gap + 2 * $padding;
   padding: $padding;
@@ -44,32 +44,12 @@ body {
   }
 }
 
-.calendar--mon .calendar__day:first-child {
-  margin-left: 0;
-}
+$days: (sun: 0, mon: 1, tue: 2, wed: 3, thu: 4, fri: 5, sat: 6);
 
-.calendar--tue .calendar__day:first-child {
-  margin-left: 1 * ($day-size + $gap);
-}
-
-.calendar--wed .calendar__day:first-child {
-  margin-left: 2 * ($day-size + $gap);
-}
-
-.calendar--thu .calendar__day:first-child {
-  margin-left: 3 * ($day-size + $gap);
-}
-
-.calendar--fri .calendar__day:first-child {
-  margin-left: 4 * ($day-size + $gap);
-}
-
-.calendar--sat .calendar__day:first-child {
-  margin-left: 5 * ($day-size + $gap);
-}
-
-.calendar--sun .calendar__day:first-child {
-  margin-left: 6 * ($day-size + $gap);
+@each $day, $col in $days {
+  .calendar--#{$day} .calendar__day:first-child {
+    margin-left: $col * ($day-size + $gap);
+  }
 }
 
 @for $i from 28 through 31 {
