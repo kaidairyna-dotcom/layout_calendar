@@ -10,6 +10,7 @@ body {
 }
 
 .calendar {
+  box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
   gap: $gap;
@@ -18,10 +19,10 @@ body {
 }
 
 .calendar__day {
+  box-sizing: border-box;
   display: grid;
   align-items: center;
   justify-content: center;
-  box-sizing: border-box;
   width: $day-size;
   height: $day-size;
   border: 1px solid black;
